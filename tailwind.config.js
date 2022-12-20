@@ -39,7 +39,8 @@ module.exports = {
         590: '590px',
       },
       backgroundImage: {
-        'hero-pattern': "url('https://i.ibb.co/MkvLDfb/Rectangle-4389.png')",
+        'hero-pattern':
+          "url('https://img.freepik.com/free-vector/flat-man-with-golden-coins-receive-cashback-e-wallet_88138-835.jpg?w=2000')",
       },
     },
   },
