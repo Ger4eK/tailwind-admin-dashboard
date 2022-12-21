@@ -78,7 +78,7 @@ export const kanbanGrid = [
 
   { headerText: 'Done', keyField: 'Close', allowToggle: true },
 ];
-const gridEmployeeProfile = (props) => (
+const   gridEmployeeProfile = (props) => (
   <div className='flex items-center gap-2'>
     <img
       className='rounded-full w-10 h-10'
@@ -473,6 +473,7 @@ export const employeesGrid = [
     template: gridEmployeeProfile,
     textAlign: 'Center',
   },
+  //! для колонка для пошуку робітників
   { field: 'Name', headerText: '', width: '0', textAlign: 'Center' },
   {
     field: 'Title',

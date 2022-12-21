@@ -6,7 +6,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import './App.css';
 import { Sidebar, Navbar } from './components';
 import { useStateContext } from './contexts/ContextProvider';
-import { Ecommerce } from './pages';
+import { Customers, Ecommerce, Employees, Orders } from './pages';
 
 function App() {
   const { activeMenu } = useStateContext();
@@ -50,9 +50,9 @@ function App() {
                 <Route path='/ecommerce' element={<Ecommerce />} />
 
                 {/* Pages */}
-                <Route path='/orders' element='Orders' />
-                <Route path='/employees' element='Employees' />
-                <Route path='/customers' element='Customers' />
+                <Route path='/orders' element={<Orders />} />
+                <Route path='/employees' element={<Employees />} />
+                <Route path='/customers' element={<Customers />} />
 
                 {/* Apps  */}
                 <Route path='/kanban' element='kanban' />
