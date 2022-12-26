@@ -13,7 +13,8 @@ const normalLink =
   'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
 
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, currentColor } =
+    useStateContext();
 
   //! handleCloseSideBar - крім того шо ця функція буде закривати при виборі сторінки, функція також буде дивитись якшо це більше 900 то автоматичного закривання sidebar не буде, тільки коли 900 і менше
   const handleCloseSideBar = () => {
@@ -57,9 +58,9 @@ const Sidebar = () => {
                     to={`/${link.name}`}
                     key={link.name}
                     onClick={handleCloseSideBar}
-                    //  style={({ isActive }) => ({
-                    //    backgroundColor: isActive ? currentColor : '',
-                    //  })}
+                    style={({ isActive }) => ({
+                      backgroundColor: isActive ? currentColor : '',
+                    })}
                     className={({ isActive }) =>
                       isActive ? activeLink : normalLink
                     }

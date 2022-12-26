@@ -36,6 +36,7 @@ const Navbar = () => {
     handleClick,
     screenSize,
     setScreenSize,
+    currentColor,
   } = useStateContext();
 
   //! дізнаємось ширину екрану сторінки
@@ -66,21 +67,21 @@ const Navbar = () => {
       <NavButton
         title='Menu'
         customFunc={handleActiveMenu}
-        color='blue'
+        color={currentColor}
         icon={<AiOutlineMenu />}
       />
       <div className='flex'>
         <NavButton
           title='Cart'
           customFunc={() => handleClick({ name: 'cart', val: !isClicked.cart })}
-          color='blue'
+          color={currentColor}
           icon={<FiShoppingCart />}
         />
         <NavButton
           title='Chat'
           dotColor='#03C9D7'
           customFunc={() => handleClick({ name: 'chat', val: !isClicked.chat })}
-          color='blue'
+          color={currentColor}
           icon={<BsChatLeft />}
         />
         <NavButton
@@ -89,7 +90,7 @@ const Navbar = () => {
           customFunc={() =>
             handleClick({ name: 'notification', val: !isClicked.notification })
           }
-          color='blue'
+          color={currentColor}
           icon={<RiNotification3Line />}
         />
         <TooltipComponent content='Profile' position='BottomCenter'>

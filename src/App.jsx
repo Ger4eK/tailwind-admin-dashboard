@@ -19,7 +19,23 @@ import {
 import ThemeSettings from './components/ThemeSettings';
 
 function App() {
-  const { activeMenu } = useStateContext();
+  const {
+    activeMenu,
+    setCurrentColor,
+    setCurrentMode,
+    currentMode,
+    currentColor,
+    themeSettings,
+    setThemeSettings,
+  } = useStateContext();
+
+  useEffect(() => {
+    const currentThemeColor = localStorage.getItem('colorMode');
+    if (currentThemeColor) {
+      setCurrentColor(currentThemeColor);
+    }
+  }, []);
+
   return (
     <>
       <BrowserRouter>
@@ -29,7 +45,8 @@ function App() {
               <button
                 type='button'
                 className='text-3xl p-3 hover:drop-shadow-lg text-white'
-                style={{ background: 'blue', borderRadius: '50%' }}
+                style={{ background: currentColor, borderRadius: '50%' }}
+                onClick={() => setThemeSettings(true)}
               >
                 <FiSettings />
               </button>
@@ -54,7 +71,7 @@ function App() {
             </div>
 
             <div>
-              <ThemeSettings />
+              {themeSettings && <ThemeSettings />}
 
               <Routes>
                 {/* Dashboard */}
