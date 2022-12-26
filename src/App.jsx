@@ -31,13 +31,15 @@ function App() {
 
   useEffect(() => {
     const currentThemeColor = localStorage.getItem('colorMode');
-    if (currentThemeColor) {
+    const currentThemeMode = localStorage.getItem('themeMode');
+    if (currentThemeColor && currentThemeMode) {
       setCurrentColor(currentThemeColor);
+      setCurrentMode(currentThemeMode);
     }
   }, []);
 
   return (
-    <>
+    <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
         <div className='flex relative dark:bg-main-dark-bg'>
           <div className='fixed right-4 bottom-4 style z-[1000]'>
@@ -62,7 +64,7 @@ function App() {
             </div>
           )}
           <div
-            className={`dark:dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${
+            className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${
               activeMenu ? ' md:ml-72' : ' flex-1'
             }`}
           >
@@ -103,7 +105,7 @@ function App() {
           </div>
         </div>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

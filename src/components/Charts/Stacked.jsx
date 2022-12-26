@@ -19,6 +19,7 @@ import {
 const Stacked = ({ width, height }) => {
   return (
     <ChartComponent
+      style={{ borderRadius: 8 }}
       width={width}
       height={height}
       id='charts'
