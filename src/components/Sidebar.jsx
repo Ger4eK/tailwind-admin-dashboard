@@ -26,7 +26,7 @@ const Sidebar = () => {
     <div className='ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10'>
       {activeMenu && (
         <>
-          <div className='flex justify-between items-center'>
+          <div className='fixed z-10 w-[265px] pb-2 bg-white flex justify-between items-center'>
             <Link
               to='/'
               onClick={handleCloseSideBar}
@@ -46,7 +46,7 @@ const Sidebar = () => {
               </button>
             </TooltipComponent>
           </div>
-          <div className='mt-10'>
+          <div className='mt-20'>
             {links.map((item) => (
               <div key={item.title}>
                 <p className='text-gray-400 dark:text-gray-400 m-3 mt-4 uppercase'>

@@ -8,6 +8,7 @@ import { Sidebar, Navbar } from './components';
 import { useStateContext } from './contexts/ContextProvider';
 import {
   Calendar,
+  ColorPicker,
   Customers,
   Ecommerce,
   Editor,
@@ -66,7 +67,7 @@ function App() {
                 <Route path='/kanban' element={<Kanban />} />
                 <Route path='/editor' element={<Editor />} />
                 <Route path='/calendar' element={<Calendar />} />
-                <Route path='/color-picker' element='color-picker' />
+                <Route path='/color-picker' element={<ColorPicker />} />
 
                 {/* Charts  */}
                 <Route path='/line' element='line' />
