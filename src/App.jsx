@@ -16,6 +16,7 @@ import {
   Kanban,
   Orders,
 } from './pages';
+import ThemeSettings from './components/ThemeSettings';
 
 function App() {
   const { activeMenu } = useStateContext();
@@ -53,6 +54,8 @@ function App() {
             </div>
 
             <div>
+              <ThemeSettings />
+
               <Routes>
                 {/* Dashboard */}
                 <Route path='/' element={<Ecommerce />} />
