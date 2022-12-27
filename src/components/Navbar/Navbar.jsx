@@ -39,6 +39,37 @@ const Navbar = () => {
     currentColor,
   } = useStateContext();
 
+  //const userProfileRef = React.useRef();
+  //const notificationRef = React.useRef();
+
+  //const handleOutsideUserProfile = (e) => {
+  //  if (!e.path.includes(userProfileRef.current)) {
+  //    handleClick({
+  //      name: 'userProfile',
+  //      val: (isClicked.userProfile = false),
+  //    });
+  //    console.log('не профіль');
+  //  }
+  //};
+  //const handleOutsideNotification = (e) => {
+  //  if (!e.path.includes(notificationRef.current)) {
+  //    handleClick({
+  //      name: 'notification',
+  //      val: (isClicked.notification = false),
+  //    });
+  //    console.log('не новини');
+  //  }
+  //};
+
+  //React.useEffect(() => {
+  //  document.body.addEventListener('click', handleOutsideUserProfile);
+  //  document.body.addEventListener('click', handleOutsideNotification);
+  //  return () => {
+  //    document.body.removeEventListener('click', handleOutsideUserProfile);
+  //    document.body.removeEventListener('click', handleOutsideNotification);
+  //  };
+  //}, []);
+
   //! дізнаємось ширину екрану сторінки
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -61,7 +92,7 @@ const Navbar = () => {
   }, [screenSize]);
 
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
-
+  //console.log(isClicked.notification);
   return (
     <div className='flex justify-between p-2 md:ml-6 md:mr-6 relative'>
       <NavButton
@@ -84,20 +115,28 @@ const Navbar = () => {
           color={currentColor}
           icon={<BsChatLeft />}
         />
+
         <NavButton
           title='Notification'
           dotColor='rgb(254, 201, 15)'
           customFunc={() =>
-            handleClick({ name: 'notification', val: !isClicked.notification })
+            handleClick({
+              name: 'notification',
+              val: !isClicked.notification,
+            })
           }
           color={currentColor}
           icon={<RiNotification3Line />}
         />
+
         <TooltipComponent content='Profile' position='BottomCenter'>
           <div
             className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
             onClick={() =>
-              handleClick({ name: 'userProfile', val: !isClicked.userProfile })
+              handleClick({
+                name: 'userProfile',
+                val: !isClicked.userProfile,
+              })
             }
           >
             <img
@@ -114,7 +153,6 @@ const Navbar = () => {
             <MdKeyboardArrowDown className='text-gray-400 text-14' />
           </div>
         </TooltipComponent>
-
         {isClicked.cart && <Cart />}
         {isClicked.chat && <Chat />}
         {isClicked.notification && <Notification />}
