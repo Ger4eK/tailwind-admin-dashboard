@@ -7,6 +7,8 @@ import './App.css';
 import { Sidebar, Navbar } from './components';
 import { useStateContext } from './contexts/ContextProvider';
 import {
+  Area,
+  Bar,
   Calendar,
   ColorPicker,
   Customers,
@@ -14,6 +16,7 @@ import {
   Editor,
   Employees,
   Kanban,
+  Line,
   Orders,
 } from './pages';
 import ThemeSettings from './components/ThemeSettings';
@@ -92,9 +95,9 @@ function App() {
                 <Route path='/color-picker' element={<ColorPicker />} />
 
                 {/* Charts  */}
-                <Route path='/line' element='line' />
-                <Route path='/area' element='area' />
-                <Route path='/bar' element='bar' />
+                <Route path='/line' element={<Line />} />
+                <Route path='/area' element={<Area />} />
+                <Route path='/bar' element={<Bar />} />
                 <Route path='/pie' element='pie' />
                 <Route path='/financial' element='financial' />
                 <Route path='/color-mapping' element='color-mapping' />
